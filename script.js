@@ -1,92 +1,63 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // ---- Scroll Reveal ----
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-            }
-        });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // Stagger children in grids
-    document.querySelectorAll('.projects-grid, .skills-grid, .certs-grid, .about-stats').forEach(grid => {
-        Array.from(grid.children).forEach((child, i) => {
-            child.style.transitionDelay = `${i * 80}ms`;
-            child.classList.add('reveal');
-            observer.observe(child);
-        });
-    });
-
-    // ---- Nav scroll effect ----
-    const nav = document.getElementById('main-nav');
-    window.addEventListener('scroll', () => {
-        nav.classList.toggle('scrolled', window.scrollY > 50);
-    }, { passive: true });
-
-    // ---- Smooth scroll ----
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-        link.addEventListener('click', e => {
-            const target = document.querySelector(link.getAttribute('href'));
-            if (target) {
-                e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    });
-
-    // ---- Parallax glow on mouse move ----
-    const bgGlow = document.querySelector('.bg-glow');
-    let rafId;
+    // ---- Cursor glow follows mouse ----
+    const glow = document.getElementById('cursor-glow');
     document.addEventListener('mousemove', e => {
-        cancelAnimationFrame(rafId);
-        rafId = requestAnimationFrame(() => {
-            const mx = (e.clientX / window.innerWidth - 0.5) * 40;
-            const my = (e.clientY / window.innerHeight - 0.5) * 40;
-            bgGlow.style.transform = `translate(${mx}px, ${my}px)`;
-        });
+        glow.style.left = e.clientX + 'px';
+        glow.style.top = e.clientY + 'px';
     }, { passive: true });
 
-    // ---- Tilt effect on project cards ----
-    document.querySelectorAll('.project-card').forEach(card => {
-        card.addEventListener('mousemove', e => {
-            const rect = card.getBoundingClientRect();
-            const x = (e.clientX - rect.left) / rect.width - 0.5;
-            const y = (e.clientY - rect.top) / rect.height - 0.5;
-            card.style.transform = `translateY(-4px) rotateX(${-y * 6}deg) rotateY(${x * 6}deg)`;
-        });
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = '';
-        });
-    });
+    // ---- Active nav section highlight on scroll ----
+    const sections = document.querySelectorAll('section[id]');
+    const navItems = document.querySelectorAll('.nav-item[data-section]');
 
-    // ---- Animate stat numbers ----
-    const animateNum = (el) => {
-        const target = parseFloat(el.dataset.target);
-        const isFloat = el.dataset.target.includes('.');
-        const duration = 1200;
-        const start = performance.now();
-        const update = (now) => {
-            const elapsed = Math.min((now - start) / duration, 1);
-            const eased = 1 - Math.pow(1 - elapsed, 3);
-            el.textContent = isFloat
-                ? (eased * target).toFixed(1)
-                : Math.round(eased * target);
-            if (elapsed < 1) requestAnimationFrame(update);
-        };
-        requestAnimationFrame(update);
+    const activateNav = (id) => {
+        navItems.forEach(item => {
+            item.classList.toggle('active', item.dataset.section === id);
+        });
     };
 
-    const numObserver = new IntersectionObserver((entries) => {
+    const scrollObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                animateNum(entry.target);
-                numObserver.unobserve(entry.target);
+                activateNav(entry.target.id);
             }
         });
-    }, { threshold: 0.5 });
+    }, {
+        rootMargin: '-40% 0px -40% 0px',
+        threshold: 0
+    });
 
-    document.querySelectorAll('.stat-num[data-target]').forEach(el => numObserver.observe(el));
+    sections.forEach(s => scrollObserver.observe(s));
+
+    // ---- Smooth scroll for nav links ----
+    document.querySelectorAll('.nav-item').forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            const target = document.querySelector(link.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+
+    // ---- Subtle entry fade-in on scroll ----
+    const fadeItems = document.querySelectorAll('.timeline-entry, .project-card, .cert-item, .skill-row');
+    const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                fadeObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.08 });
+
+    fadeItems.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(12px)';
+        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        fadeObserver.observe(el);
+    });
+
 });
