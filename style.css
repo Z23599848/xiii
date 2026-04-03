@@ -289,15 +289,15 @@ section { padding: 8rem 5%; position: relative; z-index: 1; }
 
 /* ---- HERO LANGS ---- */
 .hero-langs {
-    display: flex; gap: 0.5rem; margin-top: 2rem;
+    display: flex; flex-wrap: wrap; gap: 0.3rem 0.6rem; align-items: center;
+    margin-top: 2rem;
 }
 .hero-langs span {
-    font-family: var(--mono); font-size: 0.72rem; font-weight: 600;
-    padding: 0.25rem 0.65rem; border-radius: 4px;
-    background: var(--glass-bg); border: 1px solid var(--glass-border);
-    color: var(--text-muted);
+    font-family: var(--mono); font-size: 0.78rem; color: var(--text-muted);
 }
-
+.hero-langs .lang-dot {
+    color: var(--glass-border);
+}
 /* ---- EDUCATION ---- */
 .edu-grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
