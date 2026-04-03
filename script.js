@@ -1,56 +1,92 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Intersection Observer for fade-in animations
-    const revealElements = document.querySelectorAll('.reveal');
-    
-    const observerOptions = {
-        threshold: 0.2,
-        rootMargin: "0px 0px -50px 0px"
-    };
 
-    const observer = new IntersectionObserver((entries, observer) => {
+    // ---- Scroll Reveal ----
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
-                // observer.unobserve(entry.target); // Optional: if you only want it to reveal once
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-    revealElements.forEach(element => {
-        observer.observe(element);
-    });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // Smooth Scrolling for nav links
-    const navLinks = document.querySelectorAll('.nav-links a');
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                window.scrollTo({
-                    top: targetSection.offsetTop,
-                    behavior: 'smooth'
-                });
-            }
+    // Stagger children in grids
+    document.querySelectorAll('.projects-grid, .skills-grid, .certs-grid, .about-stats').forEach(grid => {
+        Array.from(grid.children).forEach((child, i) => {
+            child.style.transitionDelay = `${i * 80}ms`;
+            child.classList.add('reveal');
+            observer.observe(child);
         });
     });
 
-    // Logo Tilt Effect (Parallax-ish)
-    const logo = document.querySelector('.logo');
-    document.addEventListener('mousemove', (e) => {
-        const xAxis = (window.innerWidth / 2 - e.pageX) / 40;
-        const yAxis = (window.innerHeight / 2 - e.pageY) / 40;
-        logo.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+    // ---- Nav scroll effect ----
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', window.scrollY > 50);
+    }, { passive: true });
+
+    // ---- Smooth scroll ----
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', e => {
+            const target = document.querySelector(link.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
     });
 
-    // Add subtle background movement relative to mouse
+    // ---- Parallax glow on mouse move ----
     const bgGlow = document.querySelector('.bg-glow');
-    document.addEventListener('mousemove', (e) => {
-        const moveX = (e.clientX - window.innerWidth / 2) / 50;
-        const moveY = (e.clientY - window.innerHeight / 2) / 50;
-        bgGlow.style.transform = `translate(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px))`;
+    let rafId;
+    document.addEventListener('mousemove', e => {
+        cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(() => {
+            const mx = (e.clientX / window.innerWidth - 0.5) * 40;
+            const my = (e.clientY / window.innerHeight - 0.5) * 40;
+            bgGlow.style.transform = `translate(${mx}px, ${my}px)`;
+        });
+    }, { passive: true });
+
+    // ---- Tilt effect on project cards ----
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+            card.style.transform = `translateY(-4px) rotateX(${-y * 6}deg) rotateY(${x * 6}deg)`;
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = '';
+        });
     });
+
+    // ---- Animate stat numbers ----
+    const animateNum = (el) => {
+        const target = parseFloat(el.dataset.target);
+        const isFloat = el.dataset.target.includes('.');
+        const duration = 1200;
+        const start = performance.now();
+        const update = (now) => {
+            const elapsed = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - elapsed, 3);
+            el.textContent = isFloat
+                ? (eased * target).toFixed(1)
+                : Math.round(eased * target);
+            if (elapsed < 1) requestAnimationFrame(update);
+        };
+        requestAnimationFrame(update);
+    };
+
+    const numObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateNum(entry.target);
+                numObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.stat-num[data-target]').forEach(el => numObserver.observe(el));
 });

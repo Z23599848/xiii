@@ -3,75 +3,552 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XIII | Presence</title>
-    <meta name="description" content="XIII - A sleek, high-end digital presence.">
+    <title>Ali Ganji — Cybersecurity Engineer & Technical Generalist</title>
+    <meta name="description" content="Ali Ganji — cybersecurity student, founder of Lab XIII, self-directed technical builder specialising in SDR, digital forensics, infrastructure, and agent systems. Based in the UK.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="bg-glow"></div>
-    
-    <nav>
+    <div class="noise-overlay"></div>
+
+    <!-- NAV -->
+    <nav id="main-nav">
         <div class="logo">XIII</div>
         <div class="nav-links">
-            <a href="#hero">Origin</a>
-            <a href="#about">Craft</a>
-            <a href="#connect">Connect</a>
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#education">Education</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="nav-cta">
+            <a href="https://www.linkedin.com/in/ganjiali/" target="_blank" class="btn-pill">LinkedIn ↗</a>
         </div>
     </nav>
 
-    <main>
-        <section id="hero">
-            <div class="hero-content reveal">
-                <h1>XIII</h1>
-                <p class="hero-subtitle">Defining the intersection of aesthetic minimalism and technical precision. Digital excellence crafted for the next era.</p>
-                <div class="cta">
-                    <a href="#about" class="btn">Explore the vision</a>
+    <!-- HERO -->
+    <section id="hero">
+        <div class="hero-inner">
+            <div class="hero-text reveal">
+                <span class="hero-tag">// self-directed technical generalist</span>
+                <h1>Ali<br><span class="gradient-text">Ganji</span></h1>
+                <p class="hero-sub">Cybersecurity engineer, systems builder, and founder of Lab XIII. I build practical tools and environments across cyber, SDR, forensics, and agent systems — wherever the problem is hardest.</p>
+                <div class="hero-actions">
+                    <a href="#experience" class="btn-primary">View my work</a>
+                    <a href="https://github.com/Z23599848" target="_blank" class="btn-ghost">GitHub ↗</a>
+                </div>
+                <div class="hero-langs">
+                    <span>EN</span><span>FA</span><span>AZ</span><span>TR</span>
                 </div>
             </div>
-            
-            <div class="hero-image-container reveal" style="margin-top: 4rem; width: 100%; max-width: 900px; border-radius: 30px; overflow: hidden; box-shadow: 0 50px 100px rgba(0,0,0,0.5);">
-                <img src="assets/hero_bg.png" alt="XIII Hero" style="width: 100%; height: auto; display: block; border-radius: 30px;">
+            <div class="hero-visual reveal">
+                <div class="status-card">
+                    <span class="status-dot"></span>
+                    <span>Available for collaboration</span>
+                </div>
+                <img src="assets/hero_bg.png" alt="XIII Visual" class="hero-img">
+                <div class="location-card">
+                    <span>📍</span>
+                    <span>United Kingdom</span>
+                </div>
             </div>
-        </section>
+        </div>
+        <div class="scroll-hint">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
 
-        <section id="about">
-            <div class="reveal">
-                <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Architecting Experiences</h2>
-                <div class="grid">
-                    <div class="glass-card">
-                        <h3 style="margin-bottom: 1rem;">Precision</h3>
-                        <p style="color: var(--text-secondary);">Meticulously engineered digital solutions that prioritize performance, security, and scalability without compromise.</p>
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="section-inner reveal">
+            <div class="section-label">About</div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2>Systems thinking.<br>Technical depth.<br>High agency.</h2>
+                    <p>A cybersecurity student and self-employed technical builder with interests in cybersecurity, digital forensics, RF/SDR, infrastructure, automation, and intelligent systems.</p>
+                    <p>I focus on building practical tools, workflows, and environments that improve execution and technical leverage — with particular interest in virtualization, modular automation, and agent systems. Especially drawn to technically challenging work that values autonomy, depth, and systems thinking.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card glass">
+                        <span class="stat-num" data-target="4">0</span>
+                        <span class="stat-label">Languages spoken</span>
                     </div>
-                    <div class="glass-card">
-                        <h3 style="margin-bottom: 1rem;">Aesthetics</h3>
-                        <p style="color: var(--text-secondary);">Minimalist designs that evoke emotion and ensure clarity, blending form and function into a single, cohesive experience.</p>
+                    <div class="stat-card glass">
+                        <span class="stat-num" data-target="88">0</span>
+                        <span class="stat-label">Top module grade</span>
                     </div>
-                    <div class="glass-card">
-                        <h3 style="margin-bottom: 1rem;">Innovation</h3>
-                        <p style="color: var(--text-secondary);">Continuously pushing the boundaries of what's possible, exploring the frontiers of decentralized tech and modern web standards.</p>
+                    <div class="stat-card glass">
+                        <span class="stat-num" data-target="20">0</span>
+                        <span class="stat-label">GitHub repos</span>
+                    </div>
+                    <div class="stat-card glass">
+                        <span class="stat-num" data-target="12">0</span>
+                        <span class="stat-label">MS Learn badges</span>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="connect">
-            <div class="reveal" style="text-align: center; max-width: 700px; margin: 0 auto;">
-                <h2 style="font-size: 3rem; margin-bottom: 3rem;">Initiate Contact</h2>
-                <p style="margin-bottom: 3rem; color: var(--text-secondary);">Ready to build something eternal? Connect with the XIII team and let's define the future together.</p>
-                <div style="display: flex; justify-content: center; gap: 2rem;">
-                    <a href="mailto:hello@xiii.me" class="btn" style="background: transparent; color: white; border: 1px solid var(--glass-border);">Email</a>
-                    <a href="https://github.com" target="_blank" class="btn">GitHub</a>
+    <!-- EXPERIENCE -->
+    <section id="experience">
+        <div class="section-inner">
+            <div class="section-label reveal">Experience</div>
+            <h2 class="section-title reveal">Where I've built</h2>
+            <div class="timeline">
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-left">
+                        <span class="timeline-date">Jun 2025 – Present</span>
+                        <span class="timeline-badge current">Current</span>
+                    </div>
+                    <div class="timeline-right glass">
+                        <div class="timeline-header">
+                            <h3>Founder & CEO</h3>
+                            <span class="company">Lab XIII · Self-employed</span>
+                        </div>
+                        <p>Building a self-directed technical lab at the frontier of cybersecurity, SDR ecosystems, digital forensics, and autonomous agent systems. Developing containerised environments, automation workflows, and experimental tooling — with a strong operational and systems-thinking mindset.</p>
+                        <div class="tech-tags">
+                            <span>Docker</span><span>SDR++</span><span>C++</span><span>Python</span><span>MCP / Agent Systems</span><span>GNU Radio</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-left">
+                        <span class="timeline-date">Sep 2025 – Feb 2026</span>
+                    </div>
+                    <div class="timeline-right glass">
+                        <div class="timeline-header">
+                            <h3>Laboratory Assistant</h3>
+                            <span class="company">University of Roehampton · Part-time</span>
+                        </div>
+                        <p>Supported computing and cybersecurity lab sessions, guiding students through practical exercises, programming tasks, and technical debugging under academic supervision.</p>
+                        <div class="tech-tags">
+                            <span>Python</span><span>Teaching</span><span>Cybersecurity</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-left">
+                        <span class="timeline-date">Oct 2023 – Mar 2025</span>
+                    </div>
+                    <div class="timeline-right glass">
+                        <div class="timeline-header">
+                            <h3>Student Ambassador</h3>
+                            <span class="company">University of Roehampton · Part-time</span>
+                        </div>
+                        <p>Represented the university at open days and outreach events. Communicated technical degree programmes effectively to prospective students and diverse audiences.</p>
+                        <div class="tech-tags">
+                            <span>Outreach</span><span>Communication</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-left">
+                        <span class="timeline-date">Mar 2015 – Mar 2017</span>
+                    </div>
+                    <div class="timeline-right glass">
+                        <div class="timeline-header">
+                            <h3>Master Control Room Operator</h3>
+                            <span class="company">GEM GROUP – Media · Istanbul, TR</span>
+                        </div>
+                        <p>Managed live broadcast operations including TV programme scheduling, real-time playlist control, and transmission system oversight. Troubleshot the AirBox broadcast automation platform under tight SLAs in a hybrid live environment.</p>
+                        <div class="tech-tags">
+                            <span>Satellite Comms</span><span>TCP/IP</span><span>Broadcast Automation</span><span>AirBox</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+        <div class="section-inner">
+            <div class="section-label reveal">Education</div>
+            <h2 class="section-title reveal">University of Roehampton</h2>
+            <p class="section-sub reveal">BSc Cyber Security (with Foundation Year) · 2023 – 2027 · 300 / 480 credits completed</p>
+
+            <div class="edu-grid">
+                <!-- Current -->
+                <div class="edu-term glass reveal">
+                    <div class="edu-term-header">
+                        <span class="term-label">Spring 2026 · Level 5 · In Progress</span>
+                        <span class="timeline-badge current">Active</span>
+                    </div>
+                    <div class="module-list">
+                        <div class="module-row">
+                            <span class="module-name">Software Engineering <em>CMPN204</em></span>
+                            <span class="module-grade in-progress">–</span>
+                        </div>
+                        <div class="module-row">
+                            <span class="module-name">Digital Forensics <em>CMPN210</em></span>
+                            <span class="module-grade in-progress">–</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Autumn 2025 -->
+                <div class="edu-term glass reveal">
+                    <div class="edu-term-header">
+                        <span class="term-label">Autumn 2025 · Level 5</span>
+                    </div>
+                    <div class="module-list">
+                        <div class="module-row">
+                            <span class="module-name">Software Development 3 <em>CMPN201</em></span>
+                            <span class="module-grade">65</span>
+                        </div>
+                        <div class="module-row">
+                            <span class="module-name">Operating Systems <em>CMPN202</em></span>
+                            <span class="module-grade high">82</span>
+                        </div>
+                        <div class="module-row">
+                            <span class="module-name">Algorithms <em>CMPN203</em></span>
+                            <span class="module-grade">76</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spring 2025 -->
+                <div class="edu-term glass reveal">
+                    <div class="edu-term-header">
+                        <span class="term-label">Spring 2025 · Level 4</span>
+                    </div>
+                    <div class="module-list">
+                        <div class="module-row">
+                            <span class="module-name">Software Development 2 <em>CMPC104</em></span>
+                            <span class="module-grade">73</span>
+                        </div>
+                        <div class="module-row">
+                            <span class="module-name">Databases <em>CMPC106</em></span>
+                            <span class="module-grade">59</span>
+                        </div>
+                        <div class="module-row">
+                            <span class="module-name">Networking & Security Practice <em>CMPC107</em></span>
+                            <span class="module-grade">65</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Autumn 2024 -->
+                <div class="edu-term glass reveal">
+                    <div class="edu-term-header">
+                        <span class="term-label">Autumn 2024 · Level 4</span>
+                    </div>
+                    <div class="module-list">
+                        <div class="module-row">
+                            <span class="module-name">Software Development 1 <em>CMPC101</em></span>
+                            <span class="module-grade top">88</span>
+                        </div>
+                        <div class="module-row">
+                            <span class="module-name">Computer Systems <em>CMPC102</em></span>
+                            <span class="module-grade">63</span>
+                        </div>
+                        <div class="module-row">
+                            <span class="module-name">Mathematics for Computer Science <em>CMPC103</em></span>
+                            <span class="module-grade">71</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Foundation Year -->
+                <div class="edu-term glass reveal">
+                    <div class="edu-term-header">
+                        <span class="term-label">Foundation Year 2023–2024</span>
+                    </div>
+                    <div class="module-list">
+                        <div class="module-row">
+                            <span class="module-name">Computational Thinking <em>FDYC023</em></span>
+                            <span class="module-grade high">81</span>
+                        </div>
+                        <div class="module-row">
+                            <span class="module-name">Communication for Academic Purposes 2 <em>FDYC004</em></span>
+                            <span class="module-grade high">80</span>
+                        </div>
+                        <div class="module-row">
+                            <span class="module-name">Communication for Academic Purposes 1 <em>FDYC003</em></span>
+                            <span class="module-grade">79</span>
+                        </div>
+                        <div class="module-row">
+                            <span class="module-name">Digital Literacy <em>FDYC022</em></span>
+                            <span class="module-grade">76</span>
+                        </div>
+                        <div class="module-row">
+                            <span class="module-name">IT & Numerical Concepts <em>FDYC005</em></span>
+                            <span class="module-grade">75</span>
+                        </div>
+                        <div class="module-row">
+                            <span class="module-name">Academic Inquiry & Exploration <em>FDYC092</em></span>
+                            <span class="module-grade">75</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS (GitHub) -->
+    <section id="projects">
+        <div class="section-inner">
+            <div class="section-label reveal">Open Source & Research</div>
+            <h2 class="section-title reveal">GitHub Activity</h2>
+            <p class="section-sub reveal">Repositories I've built, forked, and contributed to — spanning SDR, cybersecurity, AI, and systems tooling.</p>
+            <div class="projects-grid">
+                <a href="https://github.com/Z23599848/semantic-remote-control" target="_blank" class="project-card glass reveal">
+                    <div class="project-icon">🤖</div>
+                    <h4>Semantic Remote Control</h4>
+                    <p>AI-driven machine control bridge using PiKVM v2 and MCP protocol. Natural-language control of physical systems via LLM agents.</p>
+                    <div class="tech-tags"><span>Python</span><span>MCP</span><span>PiKVM</span><span>AI</span></div>
+                    <span class="proj-arrow">↗</span>
+                </a>
+                <a href="https://github.com/Z23599848/spiderfoot" target="_blank" class="project-card glass reveal">
+                    <div class="project-icon">🕷️</div>
+                    <h4>SpiderFoot</h4>
+                    <p>OSINT automation for threat intelligence and attack surface mapping. Used in digital forensics and reconnaissance workflows.</p>
+                    <div class="tech-tags"><span>OSINT</span><span>Python</span><span>Cybersecurity</span></div>
+                    <span class="proj-arrow">↗</span>
+                </a>
+                <a href="https://github.com/Z23599848/P4wnP1" target="_blank" class="project-card glass reveal">
+                    <div class="project-icon">🔌</div>
+                    <h4>P4wnP1</h4>
+                    <p>Highly customisable USB attack platform based on Raspberry Pi Zero. Research in hardware hacking and red-team tooling.</p>
+                    <div class="tech-tags"><span>Raspberry Pi</span><span>USB</span><span>Red Team</span></div>
+                    <span class="proj-arrow">↗</span>
+                </a>
+                <a href="https://github.com/Z23599848/cariboulite" target="_blank" class="project-card glass reveal">
+                    <div class="project-icon">📡</div>
+                    <h4>CaribouLite SDR</h4>
+                    <p>Turns Raspberry Pi into a full Tx/Rx 6GHz SDR platform. Part of broader SDR ecosystem and RF signal analysis research.</p>
+                    <div class="tech-tags"><span>SDR</span><span>RF</span><span>Raspberry Pi</span><span>C++</span></div>
+                    <span class="proj-arrow">↗</span>
+                </a>
+                <a href="https://github.com/Z23599848/gr-dvbs2rx" target="_blank" class="project-card glass reveal">
+                    <div class="project-icon">🛰️</div>
+                    <h4>DVB-S2 Receiver</h4>
+                    <p>GNU Radio blocks for DVB-S2 and DVB-T2 satellite signal reception. Tied to aviation-adjacent and satellite comms research.</p>
+                    <div class="tech-tags"><span>GNU Radio</span><span>Satellite</span><span>SDR</span></div>
+                    <span class="proj-arrow">↗</span>
+                </a>
+                <a href="https://github.com/Z23599848/n2n" target="_blank" class="project-card glass reveal">
+                    <div class="project-icon">🌐</div>
+                    <h4>N2N Peer-to-Peer VPN</h4>
+                    <p>Decentralised peer-to-peer VPN. Research in secure networking, infrastructure, and privacy tooling.</p>
+                    <div class="tech-tags"><span>Networking</span><span>VPN</span><span>C</span><span>Privacy</span></div>
+                    <span class="proj-arrow">↗</span>
+                </a>
+                <a href="https://github.com/Z23599848/openbts" target="_blank" class="project-card glass reveal">
+                    <div class="project-icon">📶</div>
+                    <h4>OpenBTS</h4>
+                    <p>GSM+GPRS radio access network node. Exploration into cellular infrastructure, signal analysis, and telecommunications security.</p>
+                    <div class="tech-tags"><span>GSM</span><span>GPRS</span><span>Telecom</span></div>
+                    <span class="proj-arrow">↗</span>
+                </a>
+                <a href="https://github.com/Z23599848/airllm" target="_blank" class="project-card glass reveal">
+                    <div class="project-icon">🧠</div>
+                    <h4>AirLLM</h4>
+                    <p>70B LLM inference on a single 4GB GPU. Research into lightweight AI deployment for resource-constrained environments.</p>
+                    <div class="tech-tags"><span>AI</span><span>LLM</span><span>Python</span><span>GPU</span></div>
+                    <span class="proj-arrow">↗</span>
+                </a>
+            </div>
+            <div class="reveal" style="text-align:center; margin-top: 3rem;">
+                <a href="https://github.com/Z23599848" target="_blank" class="btn-ghost">See all repositories on GitHub ↗</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+        <div class="section-inner">
+            <div class="section-label reveal">Capabilities</div>
+            <h2 class="section-title reveal">Skills & Tools</h2>
+            <div class="skills-grid">
+                <div class="skill-group glass">
+                    <h4>Cybersecurity & Forensics</h4>
+                    <ul>
+                        <li>Digital Forensics</li>
+                        <li>OSINT & Reconnaissance</li>
+                        <li>USB Attack Platforms</li>
+                        <li>Threat Intelligence</li>
+                        <li>Network Security</li>
+                    </ul>
+                </div>
+                <div class="skill-group glass">
+                    <h4>SDR & RF</h4>
+                    <ul>
+                        <li>SDR++ / GNU Radio</li>
+                        <li>DVB-S2 / DVB-T2</li>
+                        <li>Satellite Communications</li>
+                        <li>Amateur Radio</li>
+                        <li>HackRF / CaribouLite</li>
+                    </ul>
+                </div>
+                <div class="skill-group glass">
+                    <h4>Infrastructure & Dev</h4>
+                    <ul>
+                        <li>Docker / Containerisation</li>
+                        <li>Python</li>
+                        <li>C++</li>
+                        <li>TCP/IP Networking</li>
+                        <li>Virtualisation</li>
+                    </ul>
+                </div>
+                <div class="skill-group glass">
+                    <h4>AI & Automation</h4>
+                    <ul>
+                        <li>MCP Protocol</li>
+                        <li>Agent Systems</li>
+                        <li>LLM Deployment</li>
+                        <li>Workflow Automation</li>
+                        <li>Modular Pipelines</li>
+                    </ul>
+                </div>
+                <div class="skill-group glass">
+                    <h4>Languages</h4>
+                    <ul>
+                        <li>English — Fluent</li>
+                        <li>Persian — Native</li>
+                        <li>Azerbaijani — Fluent</li>
+                        <li>Turkish — Fluent</li>
+                    </ul>
+                </div>
+                <div class="skill-group glass">
+                    <h4>Mindset</h4>
+                    <ul>
+                        <li>Systems Thinking</li>
+                        <li>High Agency</li>
+                        <li>Parallel Execution</li>
+                        <li>Operational Depth</li>
+                        <li>Self-directed Learning</li>
+                    </ul>
                 </div>
             </div>
-        </section>
-    </main>
+
+            <!-- MS Learn Certifications -->
+            <div class="section-label reveal" style="margin-top: 4rem;">Microsoft Learn</div>
+            <h3 class="section-title reveal" style="font-size: 1.8rem;">Badges & Achievements</h3>
+            <p class="section-sub reveal">18,250 XP · Level 5 · 12 Badges · 2 Learning Path Trophies</p>
+            <div class="certs-grid">
+                <div class="cert-card glass reveal">
+                    <span class="cert-icon">🏆</span>
+                    <span class="cert-badge">Trophy</span>
+                    <h4>Azure Fundamentals: Cloud Concepts</h4>
+                    <span>Oct 2024</span>
+                </div>
+                <div class="cert-card glass reveal">
+                    <span class="cert-icon">🏆</span>
+                    <span class="cert-badge">Trophy</span>
+                    <h4>Bring AI to your Business with AI Builder</h4>
+                    <span>Jan 2024</span>
+                </div>
+                <div class="cert-card glass reveal">
+                    <span class="cert-icon">🎖️</span>
+                    <span class="cert-badge">Badge</span>
+                    <h4>Fundamentals of Machine Learning</h4>
+                    <span>Oct 2024</span>
+                </div>
+                <div class="cert-card glass reveal">
+                    <span class="cert-icon">🎖️</span>
+                    <span class="cert-badge">Badge</span>
+                    <h4>Fundamental AI Concepts</h4>
+                    <span>Oct 2024</span>
+                </div>
+                <div class="cert-card glass reveal">
+                    <span class="cert-icon">🎖️</span>
+                    <span class="cert-badge">Badge</span>
+                    <h4>Describe Cloud Service Types</h4>
+                    <span>Oct 2024</span>
+                </div>
+                <div class="cert-card glass reveal">
+                    <span class="cert-icon">🎖️</span>
+                    <span class="cert-badge">Badge</span>
+                    <h4>Benefits of Using Cloud Services</h4>
+                    <span>Oct 2024</span>
+                </div>
+                <div class="cert-card glass reveal">
+                    <span class="cert-icon">🎖️</span>
+                    <span class="cert-badge">Badge</span>
+                    <h4>Describe Cloud Computing</h4>
+                    <span>Oct 2024</span>
+                </div>
+                <div class="cert-card glass reveal">
+                    <span class="cert-icon">🎖️</span>
+                    <span class="cert-badge">Badge</span>
+                    <h4>Fundamentals of Generative AI</h4>
+                    <span>Mar 2024</span>
+                </div>
+                <div class="cert-card glass reveal">
+                    <span class="cert-icon">🎖️</span>
+                    <span class="cert-badge">Badge</span>
+                    <h4>Get Started with Power Automate</h4>
+                    <span>Mar 2024</span>
+                </div>
+                <div class="cert-card glass reveal">
+                    <span class="cert-icon">🎖️</span>
+                    <span class="cert-badge">Badge</span>
+                    <h4>Protect Endpoint with Microsoft Intune</h4>
+                    <span>Jan 2024</span>
+                </div>
+                <div class="cert-card glass reveal">
+                    <span class="cert-icon">🎖️</span>
+                    <span class="cert-badge">Badge</span>
+                    <h4>Use Text Generation in AI Builder</h4>
+                    <span>Jan 2024</span>
+                </div>
+                <div class="cert-card glass reveal">
+                    <span class="cert-icon">🎖️</span>
+                    <span class="cert-badge">Badge</span>
+                    <h4>Manage Models in AI Builder</h4>
+                    <span>Jan 2024</span>
+                </div>
+                <div class="cert-card glass reveal">
+                    <span class="cert-icon">🎖️</span>
+                    <span class="cert-badge">Badge</span>
+                    <h4>Get Started with AI Builder</h4>
+                    <span>Jan 2024</span>
+                </div>
+                <div class="cert-card glass reveal">
+                    <span class="cert-icon">🎖️</span>
+                    <span class="cert-badge">Badge</span>
+                    <h4>Introduction to Microsoft Intune</h4>
+                    <span>Jan 2024</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="section-inner">
+            <div class="contact-box glass reveal">
+                <div class="section-label">Contact</div>
+                <h2>Let's build<br><span class="gradient-text">something hard.</span></h2>
+                <p>Open to technically challenging collaboration, research, and opportunities that value autonomy, depth, and systems thinking.</p>
+                <div class="contact-links">
+                    <a href="mailto:hello@xiii.me" id="contact-email" class="btn-primary">hello@xiii.me</a>
+                    <a href="https://www.linkedin.com/in/ganjiali/" target="_blank" id="contact-linkedin" class="btn-ghost">LinkedIn ↗</a>
+                    <a href="https://github.com/Z23599848" target="_blank" id="contact-github" class="btn-ghost">GitHub ↗</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer>
-        <p>&copy; 2026 XIII Protocol. All rights reserved.</p>
-        <p style="font-size: 0.8rem; margin-top: 0.5rem; letter-spacing: 2px;">XIII.ME</p>
+        <div class="footer-inner">
+            <span class="logo">XIII</span>
+            <span>Ali Ganji © 2026 — xiii.me</span>
+            <span class="mono">Built in the UK</span>
+        </div>
     </footer>
 
     <script src="script.js"></script>
